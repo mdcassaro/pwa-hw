@@ -7,7 +7,8 @@ var FILES_TO_CACHE  = [
   "/manifest.json",
   "/styles.css",
   "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png"
+  "/icons/icon-512x512.png",
+  "/database.js"
 ];
 
 
@@ -47,7 +48,6 @@ self.addEventListener("install", function(evt) {
             if (response) {
               return response;
             } else if (evt.request.headers.get("accept").includes("text/html")) {
-              // return the cached home page for all requests for html pages
               return caches.match("/");
             }
           });
